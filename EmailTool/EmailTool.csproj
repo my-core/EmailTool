@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FEE240CC-0443-4272-9B80-51D47C2E0A29}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmailTool</RootNamespace>
+    <AssemblyName>EmailTool</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\BaseConfigFileManager.cs" />
+    <Compile Include="Class\CollectHelper.cs" />
+    <Compile Include="Class\Collector.cs" />
+    <Compile Include="Class\CollectorThread.cs" />
+    <Compile Include="Class\Linker.cs" />
+    <Compile Include="Class\LinkerThread.cs" />
+    <Compile Include="Class\SettingConfig.cs" />
+    <Compile Include="Class\SettingConfigFileManager.cs" />
+    <Compile Include="Class\HtmlHelper.cs" />
+    <Compile Include="Class\IConfigInfo.cs" />
+    <Compile Include="Class\INIFile.cs" />
+    <Compile Include="Class\LinkHelper.cs" />
+    <Compile Include="Class\RegexHelper.cs" />
+    <Compile Include="Class\SerializationHelper.cs" />
+    <Compile Include="Class\SettingInfo.cs" />
+    <Compile Include="Class\SQLHelper.cs" />
+    <Compile Include="Class\UrlHelper.cs" />
+    <Compile Include="Class\UrlQueue.cs" />
+    <Compile Include="EmailTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailTool.Designer.cs">
+      <DependentUpon>EmailTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Waiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Waiting.Designer.cs">
+      <DependentUpon>Waiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EmailTool.resx">
+      <DependentUpon>EmailTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Waiting.resx">
+      <DependentUpon>Waiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlSkin\AlSkin.csproj">
+      <Project>{9D734669-6BFD-4CD0-B527-ED622CDB608D}</Project>
+      <Name>AlSkin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aio_light_bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aio_png_bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all_inside_bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all_inside02_bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all_inside03_bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all_light_bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_max.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_mini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_restore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main_light_bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main_png_bkg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_自定义属性设置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_会员退货.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_增加会员.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_普通消费.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_员工管理.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_增加产品.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
